@@ -51,7 +51,7 @@ fun ConsultaFipeScreen(snackbar: SnackbarHostState) {
     var resultado by remember { mutableStateOf<PrecoFipe?>(null) }
     var carregando by remember { mutableStateOf(false) }
 
-    // Carrega as marcas uma vez ao abrir esta tela.
+    // Carrega as marcas uma vez ao abrir
     LaunchedEffect(Unit) {
         carregando = true
         try {

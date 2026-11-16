@@ -3,11 +3,10 @@ package br.com.herdrive.data
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
-// Exatamente as quatro operações CRUD cobradas na aula de Firebase.
 class VeiculosRepositorio {
     private val colecao = FirebaseFirestore.getInstance().collection("veiculos")
 
-    // READ: recuperar todos os veículos
+    // READ
     suspend fun listar(): List<Veiculo> = colecao.get().await().documents.map { documento ->
         Veiculo(
             id = documento.id,
@@ -17,7 +16,7 @@ class VeiculosRepositorio {
         )
     }.sortedWith(compareBy(String.CASE_INSENSITIVE_ORDER) { it.marca })
 
-    // CREATE (novo) ou UPDATE (existente)
+    // CREATE ou UPDATE
     suspend fun salvar(veiculo: Veiculo) {
         val dados = mapOf(
             "marca" to veiculo.marca,

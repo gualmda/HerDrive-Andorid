@@ -5,7 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-// A API FIPE devolve listas com o código e o nome de cada opção.
 data class OpcaoFipe(
     val code: String = "",
     val name: String = ""
